@@ -1,4 +1,6 @@
 import requests
+import mainWindow
+import getCityWindow
 
 API_KEY = "0fb5387f737872fedfc8bcdd2a9a3ad6"
 CITY_NAME = "viamao"
@@ -20,3 +22,10 @@ def get_insta_weather():
     humidity = get_dic['main']['humidity']
     print(f'{description} | Real Temperature {temperature} | Feels Like: {feels} | Humidity: {humidity}')
 
+    mainWindow.city_show["text"] = CITY_NAME
+
+    #atualizaçao da variavel info_show criada no mainWindow
+    mainWindow.info_show["text"] = (f"Description: {description}\n" 
+                                    f"Real Temperature: {temperature}°C\n" 
+                                    f"Feels Like: {feels}°C\n" 
+                                    f"Humidity: {humidity}%")
